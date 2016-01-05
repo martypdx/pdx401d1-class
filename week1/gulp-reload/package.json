@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "gulp serve"
+    "start": "gulp start"
   },
   "author": "Marty Nelson <marty@martypdx.com> (@martypdx)",
   "license": "ISC",
@@ -15,5 +15,6 @@
     "gulp-sourcemaps": "^1.6.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
-  }
+  },
+  "dependencies": {}
 }

@@ -1,3 +1,4 @@
 var pets = require('./pets');
 
-alert(pets.cats);
+$('main').text( pets.cats );
+// alert(pets.cats);

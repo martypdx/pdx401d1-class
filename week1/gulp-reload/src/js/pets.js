@@ -1,3 +1,3 @@
-var cats = [ 'felix', 'garfield', 'tom'];
+var cats = [ 'felix', 'garfield', 'tommy'];
 
 module.exports = { cats };

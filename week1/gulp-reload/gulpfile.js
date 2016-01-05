@@ -1,23 +1,20 @@
 var gulp = require('gulp');
-var browserSync = require('browser-sync');
-var reload = browserSync.reload;
-
+var bs = require('browser-sync').create();
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
-// var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 var gutil = require('gulp-util');
 
 // watch files for changes and reload
 gulp.task('serve', function() {
-  browserSync({
+  bs.init({
     server: {
       baseDir: 'www'
     }
   });
 
-  gulp.watch(['www/**'], reload);
+  gulp.watch(['*'], { cwd: 'www' }, bs.reload);
 });
 
 gulp.task('bundle', function () {
@@ -28,7 +25,7 @@ gulp.task('bundle', function () {
   });
 
   return b.bundle()
-    .pipe(source('js/index.js'))
+    .pipe(source('bundle.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
         // Add transformation tasks to the pipeline here.
@@ -36,10 +33,11 @@ gulp.task('bundle', function () {
         .on('error', gutil.log)
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./www/'));
+ 
 });
 
-gulp.task( 'watch-js', function() {
-  gulp.watch(['src/js/**'], ['bundle']);
+gulp.task( 'watch-js', ['bundle'], function() {
+  gulp.watch(['./src/js/**'], ['bundle']);
 });
 
-gulp.task( 'start', ['bundle', 'watch-js', 'serve']);
+gulp.task( 'start', ['watch-js', 'serve']);
