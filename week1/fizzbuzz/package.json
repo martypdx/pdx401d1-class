@@ -1,0 +1,14 @@
+{
+  "name": "fizzbuzz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test.js -w"
+  },
+  "author": "Marty Nelson <marty@martypdx.com> (@martypdx)",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^2.3.4"
+  }
+}
