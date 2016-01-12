@@ -35,8 +35,8 @@ week 2
     * node server
         * using node as a tcp-based (http and websocket) server
         * http server
-        * REST
     * Express.js
+    * REST
     * Chai http
     * Promises
     * Assignments:

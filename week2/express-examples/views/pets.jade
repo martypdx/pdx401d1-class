@@ -1,0 +1,19 @@
+html
+  head
+    title toys
+  body
+    h1 hello toys
+    ul
+        each pet in pets
+            li #{pet.type} #{pet.name}
+    form(method='POST', action='')
+        div
+            label
+                span name:
+                input(name='name')
+        div
+            label
+                span type: 
+                input(name='type')
+        div
+            input(type='submit')

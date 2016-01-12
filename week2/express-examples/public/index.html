@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Express</title>
+</head>
+<body>
+    <p>hello express</p>
+    <main></main>
+    <script>
+        var req = new XMLHttpRequest();
+        
+        req.addEventListener('load', function(){
+            document.querySelector('main').innerHTML = this.responseText;
+        });
+        
+        req.open('GET', '/pets');
+        
+        req.send();    
+    </script>
+</body>
+</html>
