@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pets</title>
+</head>
+<body>
+	<h1>Hello Pets</h1>
+	<main></main>
+	<script src='https://code.jquery.com/jquery-2.2.0.min.js'></script>
+	<script>
+		$.get('/api/v1/pets?query={"type":"bird"}', function(data){
+			$('main').text(JSON.stringify(data));
+		})
+	</script>
+</body>
+</html>
