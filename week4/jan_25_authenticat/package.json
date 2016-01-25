@@ -1,0 +1,16 @@
+{
+  "name": "jan_25_authenticat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marty Nelson <marty@martypdx.com> (@martypdx)",
+  "license": "ISC",
+  "dependencies": {
+    "authenticat": "^1.0.2",
+    "express": "^4.13.4",
+    "mongoose": "^4.3.7"
+  }
+}
