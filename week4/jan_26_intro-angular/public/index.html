@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='myApp'>
+<head>
+	<meta charset="UTF-8">
+	<title>Angular Demo</title>
+	
+	<script src='lib/angular.min.js'></script>
+	<script src='js/index.js'></script>
+	
+</head>
+<body>
+	<header>
+		<h1>Pet World</h1>
+	</header>
+	
+	<main ng-controller='MainController'>
+		<div>
+			type: <input ng-model="typeFilter">
+		</div>
+		<ul>
+			<li ng-repeat='pet in pets | filter: { type: typeFilter }' 
+				ng-class='pet.type'
+				ng-click='select(pet)'>
+				{{ $index + 1}}: {{ pet.name }} the {{ pet.type }}
+			</li>
+		</ul>
+		<detailController id='selected'/>
+		
+		<div ng-controller="DetailController">
+			<h2>Detail view</h2>
+			<div ng-hide='selectedId'>
+				Choose a pet above
+			</div>
+			<div ng-show='selectedId'>{{ pet.name }} the {{pet.type}} loves {{pet.food}}</div>
+		</div>
+		
+	</main>
+</body>
+</html>
