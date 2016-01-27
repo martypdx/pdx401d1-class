@@ -9,6 +9,7 @@
   "author": "Marty Nelson <marty@martypdx.com> (@martypdx)",
   "license": "ISC",
   "dependencies": {
+    "chance": "^0.8.0",
     "express": "^4.13.4"
   }
 }

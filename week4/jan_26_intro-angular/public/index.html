@@ -14,6 +14,24 @@
 	</header>
 	
 	<main ng-controller='MainController'>
+		
+		<div ng-controller='AuthCtrl'>
+			<span ng-click='action = "login"'>login</span>
+			<span ng-click='action = "register"'>register</span>
+			
+			<h1>{{ action === 'login' ? 'Log in' : 'Register' }}</h1>
+			<div ng-show='action'>
+				<form ng-submit='auth()'>
+					<div><label>username:<input ng-model='username'></label></div>
+					<div><label>password:<input ng-model='password' type='password'></label></div>
+					<button type='submit'>{{ action === 'login' ? 'Log in' : 'Register' }}</button>
+				</form>
+			</div>
+			
+		</div>
+		
+		<br>
+		
 		<div>
 			type: <input ng-model="typeFilter">
 		</div>

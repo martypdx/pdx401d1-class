@@ -25,3 +25,20 @@ app.controller( 'DetailController', function( $scope, $http ) {
 	});
 	
 });
+
+
+
+app.controller( 'AuthCtrl', function( $scope, $http ) {
+	
+	$scope.action = '';
+	
+	$scope.auth = function(){
+		var url = '/' + $scope.action;
+		var method = $scope.action === 'login' ? 'GET' : 'POST';
+		
+		console.log( 'would do action', method, 'at', url, 'using', $scope.username, $scope.password);
+		
+		
+	};
+	
+});
