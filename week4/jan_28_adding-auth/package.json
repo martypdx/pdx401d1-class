@@ -1,0 +1,29 @@
+{
+  "name": "jan_28_adding-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server"
+  },
+  "author": "Marty Nelson <marty@martypdx.com> (@martypdx)",
+  "license": "ISC",
+  "dependencies": {
+    "authenticat": "^1.0.2",
+    "body-parser": "^1.14.2",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "grant-express": "^3.5.5",
+    "jsonwebtoken": "^5.5.4",
+    "mongoose": "^4.3.7",
+    "morgan": "^1.6.1",
+    "passport": "^0.3.2",
+    "passport-twitter": "^1.0.3",
+    "twitter": "^1.2.5"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-babel": "^6.1.1"
+  }
+}

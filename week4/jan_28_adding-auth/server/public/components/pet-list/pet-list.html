@@ -1,0 +1,9 @@
+<div>
+	type: <input ng-model="typeFilter">
+</div>
+<ul>
+	<li ng-repeat='pet in pets | filter: { type: typeFilter }' 
+		ng-class='pet.type'>
+		{{ $index + 1}}: <a ng-href='#/pets/{{ pet.id }}'>{{ pet.name }} the {{ pet.type }}</a>
+	</li>
+</ul>

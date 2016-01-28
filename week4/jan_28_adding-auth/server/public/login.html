@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='authApp'>
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	
+	<script src='lib/angular.min.js'></script>
+	<script src='js/login.js'></script>
+	
+</head>
+<body>
+	<header>
+		<h1>Welcome to Pet World</h1>
+	</header>
+	
+	<main ng-controller='authCtrl'>
+		<h2>Login using:</h2>
+		<a href='/connect/twitter'>Twitter</a>
+		
+		<h3>Username/Password:</h3>
+		<div style='color: red;'>{{ error }}</div>
+		<form ng-submit='submit()'>
+			<div><label>username: <input ng-model='username' required></label></div>
+			<div><label>password: <input ng-model='password' type='password' required></label></div>
+			<div>
+				<button ng-click='action = "signin"' type='submit'>Login</button>
+				<button ng-click='action = "signup"' type='submit'>Register</button>
+			</div>
+		</form>
+	</main>
+	
+</body>
+</html>
