@@ -1,0 +1,1 @@
+module.exports = process.env.APP_SECRET = ( process.env.APP_SECRET || 'no youz tell' );

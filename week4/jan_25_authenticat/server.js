@@ -4,6 +4,9 @@ var connection = mongoose.createConnection('mongodb://localhost/whatever');
 var Authenticat = require('authenticat');
 var authenticat = new Authenticat(connection);
 
+var users = require( 'authenticat/lib/users' );
+console.log( 'users', users);
+
 app.use('/api', authenticat.router);
 
 app.get('/secretpath', authenticat.tokenAuth, function(req, res) {

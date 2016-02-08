@@ -26,8 +26,6 @@ app.controller( 'DetailController', function( $scope, $http ) {
 	
 });
 
-
-
 app.controller( 'AuthCtrl', function( $scope, $http ) {
 	
 	$scope.action = '';
