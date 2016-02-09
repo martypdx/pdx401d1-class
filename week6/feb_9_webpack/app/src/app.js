@@ -3,9 +3,9 @@ import cool from 'cool-ascii-faces';
 import './css/main.css';
 import angular from 'angular';
 import router from 'angular-route';
-import template from '!html!./app.html';
-import view1 from '!html!./view1.html';
-import view2 from '!html!./view2.html';
+import template from './app.html';
+import view1 from './view1.html';
+import view2 from './view2.html';
 
 const app = angular.module( 'myApp', [
 	router	
