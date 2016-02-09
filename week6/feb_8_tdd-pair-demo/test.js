@@ -32,13 +32,16 @@ it( 'costs 8*3*.9 EUR for three different books', () => {
 it( 'costs 8*3 EUR for three of the same books', () => {
 	assert.equal( getDiscount(['C', 'C', 'C']), costOfOneBook*3 );	
 });
-/*2 copies of the first book
+
+/*
+2 copies of the first book
 2 copies of the second book
 2 copies of the third book
 1 copy of the fourth book
 1 copy of the fifth book
 
-Answer: 51.60 EUR*/
+Answer: 51.60 EUR
+*/
 
 it( 'costs 51.60 EUR for webpage example', () => {
 	assert.equal( getDiscount(['A','A', 'B','B', 'C','C', 'D', 'E']), 51.60 );	
@@ -47,27 +50,23 @@ it( 'costs 51.60 EUR for webpage example', () => {
 function getDiscount(books) {
     if (!books || !books.length) { return 0; }
 	
-	var sets = { A: 0, B: 0, C: 0, D: 0, E: 0 };
-
-	books.forEach( b => sets[b]++ );
+	var lookup = { A: 0, B: 1, C: 2, D: 3, E: 4 };
+	var sets = [ 0, 0, 0, 0, 0 ];
+	
+	books.forEach( b => sets[ lookup[b] ]++ );
 	
 	var total = 0;
-	var keys;
-	while ( keys = Object.keys(sets), keys.length ) {
-		var setCount = 0;
-		keys.forEach( key => {
-			if ( !sets[key] ) { delete sets[key]; }
-			else {
-			   setCount++;
-			   sets[key]--;
-			}
-		});
-		total += getSetCost( setCount );
-	}	
+	
+	while ( true ) {
+		sets = sets.filter( b => b > 0 );
+		if ( !sets.length ) break;
+		total += getSetCost( sets.length );
+		sets = sets.map( b => --b );
+	}
+	
 	return total;
 }
 
 function getSetCost( setCount ) {
-    //assert (setCount > 0);
 	return (1 - discount[setCount]) * setCount * costOfOneBook;
 }
