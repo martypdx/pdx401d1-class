@@ -1,10 +1,14 @@
+const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
+const path = require( 'path' );
+
 module.exports = {
 	entry: './src/app.js',
 	output: {
-		path: __dirname,
+		path: path.resolve( __dirname, '../server/public' ),
 		filename: 'bundle.js'
 	},
 	devtool: 'source-map',
+	plugins: [new HtmlWebpackPlugin()],
 	module: {
 		preLoaders: [
             {
