@@ -1,0 +1,18 @@
+p {
+	color: white;
+	background-color: steelblue;
+	font-weight: bolder;
+	padding: 10px;
+}
+
+table {
+	width: 400px;
+}
+
+thead {
+	font-weight: bolder;
+}
+
+tr.ng-enter {
+	color: red;
+}
