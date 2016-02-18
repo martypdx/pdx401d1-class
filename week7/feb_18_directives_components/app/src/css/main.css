@@ -1,0 +1,10 @@
+p {
+	color: white;
+	background-color: steelblue;
+	font-weight: bolder;
+	padding: 10px;
+}
+
+form.ng-invalid:not(.ng-pristine) {
+	//background: red;
+}

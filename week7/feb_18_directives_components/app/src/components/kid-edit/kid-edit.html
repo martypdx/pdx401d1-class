@@ -1,0 +1,28 @@
+<div>
+	<form name='form' 
+			novalidate
+			ng-submit='updated()'>
+			
+	
+		<form-control label='Name' field='form.name'>
+			<input name='name' 
+				   required
+				   ng-model='edit.name'
+				   ng-model-options="{ debounce: 500 }">
+		</form-control>
+	
+		<form-control label='Age' field='form.age'>
+			<input name='age'
+				   required 
+				   ng-model='edit.age'
+				   ng-pattern='/^\d+$/'>
+		</form-control>
+		
+		<form-control label='Toy' field='form.toy'>
+			<input name='toy' ng-model='edit.toy' ng-trim='false'>
+		</form-control>
+		
+		<button ng-disabled='form.$invalid' type='submit'>Change</button>
+		<button ng-click='reset()'>Reset</button>
+	</form>
+</div>
