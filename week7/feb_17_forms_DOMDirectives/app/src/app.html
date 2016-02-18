@@ -1,5 +1,10 @@
 <div ng-controller='AppCtrl'>
 	<h1>My app</h1>
+	monthy: <input ng-model='dateFormat' type='radio' name='dateFormat' ng-value="dateFormats.monthly">
+	yearly: <input ng-model='dateFormat' type='radio' name='dateFormat' ng-value="dateFormats.yearly">
+	<br>
+	create: {{ created | moment:dateFormat }}
+	<hr>
 	<!--<p><input ng-model='format' value='MM YYYY'></p>-->
 	<p>{{ person | json }}</p>
 

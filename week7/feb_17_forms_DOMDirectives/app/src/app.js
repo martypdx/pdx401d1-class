@@ -9,7 +9,15 @@ const app = angular.module( 'myApp', [
 	filters
 ]);
 
-app.controller( 'AppCtrl', [ '$scope', function( $scope ){
+app.controller( 'AppCtrl', [ '$scope', '$timeout', function( $scope, $timeout ){
+	$scope.created = new Date();
+	$scope.dateFormats = { yearly: {}, monthly: { format: 'MM' } };
+	$scope.dateFormat = $scope.dateFormats.monthly;
+	
+	$timeout( function(){
+		$scope.dateFormats.yearly.format = 'YYYY';
+	}, 3000 );
+	
 	$scope.person = {
 		name: 'Sarah Joe',
 		age: 14,

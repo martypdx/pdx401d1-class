@@ -3,9 +3,9 @@ import moment from 'moment';
 	export default function( ngModule ) {
 	
 	ngModule.filter( 'moment', function() {
-		return function filter( date, format /*, options*/ ){
-			const momentDate = moment( date );
-			return format ? momentDate.format( format ) : momentDate.fromNow();
+		return function filter( date, display ){
+			if ( !display || !display.format ) { return ''; }
+			return moment( date ).format( display.format );
 		};
 	});
 	
