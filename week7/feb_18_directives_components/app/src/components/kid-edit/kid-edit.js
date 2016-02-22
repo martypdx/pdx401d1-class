@@ -15,17 +15,18 @@ export default function( ngModule ) {
 			scope: {
 				person: '=',
 				saved: '&'
-			},			
+			},
+			controllerAs: 'kid',			
 			controller: [ '$scope', function( $scope ){
 				
 				$scope.reset = function() {
-					$scope.edit = angular.copy($scope.person);
+					$scope.editPerson = angular.copy($scope.person);
 				};
 
 				$scope.reset();
 				
 				$scope.updated = function(){
-					$scope.saved({ person: angular.copy($scope.edit) });
+					$scope.saved({ person: angular.copy($scope.editPerson) });
 				};
 				
 			}]

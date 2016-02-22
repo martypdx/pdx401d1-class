@@ -1,13 +1,13 @@
 <div>
 	<div>
-		<label>{{label}} --></label>
+		<label>{{control.label}} --></label>
 	</div>
 	
 	<div class='control' ng-transclude></div>
 	
 	<div class='errors'>
-		<span ng-show='field.$dirty' ng-repeat='(error, isError) in field.$error'>
-			{{errors[field.$name][error]}}
+		<span ng-show='control.field.$dirty' ng-repeat='(error, isError) in control.field.$error'>
+			{{control.errors[field.$name][error]}}
 		</span>
 	</div>
 </div>

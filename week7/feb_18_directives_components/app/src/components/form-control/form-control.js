@@ -11,14 +11,16 @@ export default function( ngModule ) {
 			// 	control: 'input',
 			// 	errors: '?errors'
 			// },
+			controllerAs: 'control',
+			bindToController: true,
 			template,
 			scope: {
 				label: '@',
 				field: '='
 			},			
-			controller: [ '$scope', function($scope){
-				$scope.errors = errorDict;
-			}]
+			controller: function(){
+				this.errors = errorDict;
+			}
 		};
 	});
 }

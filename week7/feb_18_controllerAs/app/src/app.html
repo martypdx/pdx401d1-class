@@ -1,0 +1,11 @@
+<div ng-controller='AppCtrl as app'>
+	hello {{app.place}}
+	{{app.monkeys}}
+	CHILD ---> {{child.name}} <---
+	
+	<div ng-controller='ChildCtrl as child'>
+		{{app.place}}
+		{{child.name}}
+	</div>
+	<!--<div ng-view></div>-->
+</div>
