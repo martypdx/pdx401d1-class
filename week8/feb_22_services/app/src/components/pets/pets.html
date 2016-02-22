@@ -1,0 +1,16 @@
+<section>
+	<ul>
+		<li class="pet""
+			ng-repeat="pet in pets.list"
+			ng-click="pets.selected=pet">
+			<div>{{pet.name}} the {{pet.type}}</div>
+			<div class='pickup'><em>pickup now from {{pet.store.name}}</em></div>
+		</li>
+	</ul>
+	
+	<pet ng-if='pets.selected' 
+		 pet='pets.selected' 
+		 saved='pets.update(pet)'
+		 closed='pets.closeDetail()'></pet>
+		 
+</section>

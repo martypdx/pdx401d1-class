@@ -1,0 +1,22 @@
+<form ng-submit='submit()'>
+	<div>Bar is {{bar}}</div>
+	<div>
+		<label>Name: <input ng-model='edit.name'></label>
+	</div>
+	
+	<div>
+		<label>Type: <input ng-model='edit.type'></label>
+	</div>
+	
+	<div>
+		<label>Store:
+			<select name="store" ng-model="edit.store._id">
+				<option ng-repeat='store in stores' value="store._id">{{store.name}}</option>
+			</select>
+		</label>
+	</div>
+	
+	<button type="submit">Save</button>
+	<button type="reset">Close</button>
+</form>
+	
