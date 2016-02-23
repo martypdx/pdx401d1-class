@@ -15,11 +15,8 @@ const app = angular.module( 'myApp', [
 	services
 ]);
 
-app.factory( 'apiUrl', function(){
-	return 'http://localhost:3000/api/v1';
-});
 
-app.value( 'apiUrl', 'http://localhost:3000/api/v1' );
+// app.value( 'apiUrl', 'http://localhost:3000/api/v1' );
 
 app.config( [ '$routeProvider', function( $routeProvider ) {
 

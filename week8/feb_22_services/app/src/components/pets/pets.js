@@ -13,7 +13,7 @@ export default function( ngModule ) {
 				
 				this.selected = null;
 				
-				this.list = Pet.query();
+				Pet.get().then( pets => this.list = pets );
 							
 				this.closeDetail = () => {
 					this.selected = null;
