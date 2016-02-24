@@ -26,13 +26,43 @@ app.factory( 'FooService', function( $timeout ){
 	}, 5000);
 });
 
-function passState( $scope, $stateParams ) {
-	Object.keys( $stateParams ).forEach( key => {
-		$scope[key] = $stateParams[key];
-	});
+function passData( args ) {
+	
+	const passState = function( $scope, $stateParams ) {
+		Object.keys( $stateParams ).forEach( key => {
+			$scope[key] = $stateParams[key];
+		});
+		
+		if ( args ) {
+			args.forEach( ( a, i ) => {
+				$scope[ args[i] ] = arguments[ i + 2 ];
+			});
+		}
+	};
+	
+	const inject = [ '$scope', '$stateParams' ];
+	if ( args ) {
+		args.forEach( a => inject.push(a) );
+	}
+	
+	passState.$inject = inject;
+	
+	return passState;
 }
 
-app.config( function( $stateProvider ) {
+app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
+	
+	$locationProvider.html5Mode(true);
+	
+	// Here's an example of how you might allow case insensitive urls
+   // Note that this is an example, and you may also use 
+   // $urlMatcherFactory.caseInsensitive(true); for a similar result.
+   $urlRouterProvider.rule(function ($localStorage, $location) {
+	   if ( !window.localStorage.token ) {
+		   window.location = '/signin';
+	   }
+   });
+	
 	$stateProvider
 		.state( 'pets', {
 			url: '/pets?type',
@@ -43,23 +73,27 @@ app.config( function( $stateProvider ) {
 						query: { 
 							type: $stateParams.type 
 						} 
-					});
+					}).$promise;
 				}
 			},
-			controller: passState
+			controller: passData( [ 'pets' ] )
+			// controller: function( $scope, $stateParams, pets ) {
+			// 	$scope.type = $stateParams.type;
+			// 	$scope.pets = pets;
+			// }
 		})
 		.state( 'pets.type', {
 			url: '/type/:petType',
 			views: {
 				details: {
-					template: `<pet-type-details type="type"/>`,
-					controller: passState
+					template: `<pet-type-details type="petType"/>`,
+					controller: passData()
 				},
 				picture: {
-					template: `<pet-type-picture type="type"/>`
+					template: `<pet-type-picture type="petType"/>`
 				},
 				availability: {
-					template: `<pet-type-availability type="type"/>`
+					template: `<pet-type-availability type="petType"/>`
 				}
 			}
 		})
@@ -71,7 +105,7 @@ app.config( function( $stateProvider ) {
 				}
 			},
 			template: '<stores stores="stores"/>',
-			controller: passState
+			controller: passData()
 		});
 	
 });

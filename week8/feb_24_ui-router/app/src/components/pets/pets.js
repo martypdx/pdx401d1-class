@@ -9,8 +9,8 @@ export default function( ngModule ) {
 			scope: {
 				pets: '='
 			},
-			controller() {
-			 // do stuff	
+			controller( $scope ) {
+				// do stuff 	
 			}
 		};
 	});
