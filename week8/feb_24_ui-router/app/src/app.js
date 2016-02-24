@@ -1,67 +1,24 @@
 import angular from 'angular';
 import router from 'angular-ui-router';
 import resource from 'angular-resource';
-import template from './app.html';
+import services from './services';
+import passData from './pass-data';
 import components from './components';
-import './css.css';
+import './main.css';
 
 const app = angular.module( 'myApp', [
-	router, resource, components
+	router, resource, services, components
 ]);
-
-var baseUrl = 'http://localhost:3000/api/v1';
-var getPets = baseUrl + '/pets?populate=store';
-var getStores = baseUrl + '/stores';
-
-app.factory( 'PetService', function( $resource ) {
-	return $resource( getPets );
-});
-app.factory( 'StoreService', function( $resource ) {
-	return $resource( getStores );
-});
-
-app.factory( 'FooService', function( $timeout ){
-	return $timeout(function(){
-		return { foo: 'FOO' };
-	}, 5000);
-});
-
-function passData( args ) {
-	
-	const passState = function( $scope, $stateParams ) {
-		Object.keys( $stateParams ).forEach( key => {
-			$scope[key] = $stateParams[key];
-		});
-		
-		if ( args ) {
-			args.forEach( ( a, i ) => {
-				$scope[ args[i] ] = arguments[ i + 2 ];
-			});
-		}
-	};
-	
-	const inject = [ '$scope', '$stateParams' ];
-	if ( args ) {
-		args.forEach( a => inject.push(a) );
-	}
-	
-	passState.$inject = inject;
-	
-	return passState;
-}
 
 app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
 	
-	$locationProvider.html5Mode(true);
+	// $locationProvider.html5Mode(true);
 	
-	// Here's an example of how you might allow case insensitive urls
-   // Note that this is an example, and you may also use 
-   // $urlMatcherFactory.caseInsensitive(true); for a similar result.
-   $urlRouterProvider.rule(function ($localStorage, $location) {
-	   if ( !window.localStorage.token ) {
-		   window.location = '/signin';
-	   }
-   });
+//    $urlRouterProvider.rule(function ($localStorage, $location) {
+// 	   if ( !window.localStorage.token ) {
+// 		   window.location = '/signin';
+// 	   }
+//    });
 	
 	$stateProvider
 		.state( 'pets', {
@@ -107,17 +64,8 @@ app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
 			template: '<stores stores="stores"/>',
 			controller: passData()
 		});
-	
 });
 
-app.run( function( $rootScope, $state ) {
-	$rootScope.place = 'earth';
-	$rootScope.petTypes = [ 'bird', 'dog', 'lion' ];
-	
-	// $state.transitionTo( 'pets' );
-});
-
-document.body.innerHTML = template;
 angular.bootstrap( document, [ app.name ], {} );
 
 
