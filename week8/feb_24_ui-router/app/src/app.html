@@ -1,0 +1,30 @@
+<div>
+	<h1>angular ui router</h1>
+	
+	<nav>
+		<a ui-sref='pets({ type: null })'>pets</a>
+		<a ui-sref='stores'>stores</a>
+	</nav>
+	
+	<section>
+	hello {{place}}
+	</section>
+	
+	<section>
+		<p>show: 
+			<a ui-sref='pets({ type: null })'>
+					all
+			</a>
+			
+			<a ng-repeat='type in petTypes' 
+					ui-sref='pets({ type: type })'>
+					{{type}} 
+			</a>
+		</p>
+		
+		<div ui-view>
+			default text: welcome to pet world
+		</div>
+		
+	</section>
+</div>
