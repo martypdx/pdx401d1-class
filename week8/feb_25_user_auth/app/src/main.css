@@ -1,0 +1,18 @@
+.details {
+	border: 1px solid steelblue;
+}
+
+.picture {
+	position: absolute;
+	top: 0; right: 0;
+	height: 100px;
+	width: 100px;
+	background: yellow;
+}
+
+.availability {
+	position: absolute;
+	left: 0; right: 0; bottom: 0;
+	height: 100px;
+	border: 1px dashed red;
+}

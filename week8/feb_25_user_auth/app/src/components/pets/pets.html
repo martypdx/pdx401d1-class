@@ -1,0 +1,14 @@
+<section>
+	<h3>These are the pets <span ng-if='type'>Of type {{type}}</span></h3>
+
+	<li ng-repeat="pet in pets">
+		{{pet.name}} the 
+		<span style='color: blue' ui-sref='pets.type({ petType: pet.type })'>
+			{{pet.type}}
+		</span>
+	</li>
+
+	<div ui-view='details'></div>
+	<div ui-view='picture'></div>
+	<div ui-view='availability'></div>
+</section>
