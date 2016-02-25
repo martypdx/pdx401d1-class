@@ -9,12 +9,6 @@ const User = require( '../models/user' );
 
 const config = process.env;
 
-// const config = {
-// 	TWITTER_KEY: ,
-// 	TWITTER_SECRET: '',
-// 	TOKEN_SECRET: ''
-// };
-
 function createJWT(user) {
   var payload = {
     sub: user._id,

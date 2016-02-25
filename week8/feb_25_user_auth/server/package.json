@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "eval $(cat .env) nodemon server.js",
     "test": "mocha",
     "test-watch": "mocha -w",
     "api-test": "mocha 'test-api/'"
