@@ -1,0 +1,10 @@
+@import 'style-assets';
+
+$height: 70px;
+
+header {
+	border: 1px solid red;
+	padding: 15px;
+	background: $banner-color;
+	@include prefix( border-radius, 25px );
+}
