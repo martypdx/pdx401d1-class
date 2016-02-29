@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --inline",
-    "build": "webpack",
+    "start": "eval $(cat dev.env) webpack-dev-server --inline",
+    "build": "eval $(cat prod.env) webpack",
     "test": "karma start",
     "update-webdriver": "webdriver update",
     "e2e": "protractor",

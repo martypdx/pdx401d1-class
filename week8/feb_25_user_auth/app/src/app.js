@@ -10,13 +10,15 @@ import './main.css';
 import 'ng-dialog/css/ngDialog.css';
 import 'ng-dialog/css/ngDialog-theme-default.css';
 
+console.log( 'api url', API_URL );
+
 const app = angular.module( 'myApp', [
 	router, resource, satellizer, services, components, ngDialog
 ]);
 
 app.config( function( $authProvider ) {
 	$authProvider.twitter({
-		url: 'http://localhost:3000/auth/twitter',
+		url: API_URL + '/auth/twitter',
 		// authorizationEndpoint: 'https://api.twitter.com/oauth/authenticate',
 		// redirectUri: window.location.origin,
 		// type: '1.0',
