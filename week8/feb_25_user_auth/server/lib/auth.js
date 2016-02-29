@@ -6,16 +6,15 @@ const qs = require( 'querystring' );
 const router = new Router();
 const User = require( '../models/user' );
 
-
 const config = process.env;
 
-function createJWT(user) {
+function createJWT( user ) {
   var payload = {
     sub: user._id,
     iat: moment().unix(),
-    exp: moment().add(14, 'days').unix()
+    exp: moment().add( 14, 'days' ).unix()
   };
-  return jwt.encode(payload, config.TOKEN_SECRET);
+  return jwt.encode( payload, config.TOKEN_SECRET );
 }
 
 router.post('/twitter', function(req, res) {
