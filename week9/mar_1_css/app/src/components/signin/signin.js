@@ -11,12 +11,14 @@ export default function( ngModule ) {
 			},
 			controller ( $scope, $auth ) {
 				$scope.authenticate = function( provider ) {
-					$auth.authenticate( provider )
+					return $auth.authenticate( provider )
 						.then( response => {
 							$scope.success( { response } );
+							return true;
 						})
-						.catch( response => {
-							alert( 'problem!' );
+						.catch( error => {
+							$scope.error = error;
+							return false;
 						});
 				};
   			}
