@@ -1,0 +1,11 @@
+@import 'style-assets';
+
+:local(.header) {
+	
+	padding: 15px;
+	background: $banner-color;
+	
+	nav > a {
+		display: block;
+	}
+}

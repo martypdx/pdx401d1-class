@@ -1,0 +1,18 @@
+@import 'style-assets';
+
+:local(.footer) {
+	@extend .center-contents;
+	@extend .fill;
+	
+	background: lighten( $banner-color, 15% );
+	font-size: $med-font;
+	
+	&:hover {
+		background: lighten( $banner-color, 12% );
+	}
+	
+	.copyright {
+		font-size: $small-font;
+		margin-left: 5px;
+	}
+}

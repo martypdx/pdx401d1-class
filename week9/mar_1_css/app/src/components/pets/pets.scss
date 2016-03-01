@@ -1,0 +1,18 @@
+
+li {
+	transition: 
+		opacity ease-in-out .5s,
+		max-height ease-in-out .5s;
+	
+	opacity: 1;
+	max-height:30px;
+	
+	&.ng-leave.ng-leave-active, {
+		opacity:0;
+  		max-height:0;
+	}
+	
+	&.selected {
+		font-weight: bold;
+	}
+}

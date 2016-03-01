@@ -1,0 +1,15 @@
+@import 'style-assets';
+
+$footer-height: 50px;
+
+.app-wrapper {
+	@extend .fill;
+	overflow: auto;	
+}
+
+footer {
+	position: absolute;
+	bottom: 0; right: 0; left: 0;
+	height: $footer-height;
+}
+

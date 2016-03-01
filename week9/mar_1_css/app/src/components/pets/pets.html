@@ -1,0 +1,24 @@
+<section>
+	<h3>These are the pets <span ng-if='type'>Of type {{type}}</span></h3>
+
+	<div ng-show='saving'>Saving...</div>
+	
+	<ul>
+		<li ng-repeat="pet in pets track by pet._id"
+			ng-class="{ selected: selected[$index] }">
+			
+			<input type='checkbox' 
+				   ng-click='selected[$index] = !selected[$index]'>
+				   
+			{{pet.name}} the 
+			<span style='color: blue' ui-sref='pets.type({ petType: pet.type })'>
+				{{pet.type}}
+			</span>
+			<button ng-click='remove(pet, $index)'>x</button>
+		</li>
+	</ul>
+
+	<div ui-view='details'></div>
+	<div ui-view='picture'></div>
+	<div ui-view='availability'></div>
+</section>
