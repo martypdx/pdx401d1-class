@@ -56,5 +56,5 @@ function configRoutes( $stateProvider, $urlRouterProvider ) {
 			controller: passData( [ 'stores' ] )
 		});
 		
-		$urlRouterProvider.otherwise( '/welcome' );
+		$urlRouterProvider.otherwise( '/stores' );
 }

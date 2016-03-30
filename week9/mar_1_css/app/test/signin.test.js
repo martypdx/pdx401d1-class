@@ -2,7 +2,7 @@ describe( 'signin', () => {
 	
 	var $auth = {};
 	
-	beforeEach( angular.mock.module( 'myApp', function( $provide ) {
+	beforeEach( angular.mock.module( 'components', function( $provide ) {
 		$provide.value( '$auth', $auth );	
 	}));
 	

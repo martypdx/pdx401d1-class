@@ -7,7 +7,3 @@ import './main.scss';
 configAuth( app );
 configRoutes( app );
 angular.bootstrap( document, [ app.name ], {} );
-
-
-
-
